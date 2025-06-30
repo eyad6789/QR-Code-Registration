@@ -46,8 +46,8 @@ Admins can view a list of all attendees along with their check-in status.
 ## 🖥️ Installation & Running
 Clone the Repository
 ```
-git clone <your-repo-link>
-cd <project-directory>
+git clone https://github.com/eyad6789/QR-Code-Conference-Check-in-System.git
+cd QR-Code-Conference-Check-in-System
 Install Dependencies
 ```
 ```
