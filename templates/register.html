@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register for Conference</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <h2>Register for Conference</h2>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <ul>
+          {% for category, message in messages %}
+            <li class="{{ category }}">{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+    <form method="POST">
+        <label>Name:</label>
+        <input type="text" name="name" required><br>
+        <label>Email:</label>
+        <input type="email" name="email" required><br>
+        <button type="submit">Register</button>
+    </form>
+    {% if qr_code %}
+        <h3>Your QR Code:</h3>
+        <img src="{{ url_for('static', filename=qr_code) }}" alt="QR Code">
+    {% endif %}
+    <br>
+    <a href="{{ url_for('scan') }}">Go to Scan Page</a><br>
+</body>
+</html>
