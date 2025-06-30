@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../static/css/view_attendees.css" rel="stylesheet">
+    <title>Attendees List</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="title">Attendees List</h1>
+        <table class="attendee-table">
+            <thead>
+                <tr class="row header">
+                    <th class="table_title">ID</th>
+                    <th class="table_title">Name</th>
+                    <th class="table_title">Email</th>
+                    <th class="table_title">QR Code</th>
+                    <th class="table_title">Checked In</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for attendee in attendees %}
+                <tr class="row">
+                    <td class="cell">{{ attendee.id }}</td>
+                    <td class="cell Name">{{ attendee.name }}</td>
+                    <td class="cell ">{{ attendee.email }}</td>
+                    <td class="cell"><img src="{{ url_for('static', filename=attendee.qr_code) }}" alt="QR code image" class="qr-img"></td>
+                    <td class="cell">{{ attendee.checked_in }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
